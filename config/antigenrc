@@ -18,7 +18,6 @@ antigen bundles <<EOBUNDLES
     pyenv
     python
     sublime
-    sudo
     thefuck
     unixorn/autoupdate-antigen.zshplugin
     zdharma/fast-syntax-highlighting
