@@ -10,6 +10,16 @@
     '~',
 ]
 
+- shell:
+  - [~/.fzf/install]
+  - [pip install --upgrade pip --user, Update pip]
+  - [rm -rf ~/.pyenv]
+  - ['curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash' , Installing pyenv]
+  - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
+  - [pip install -U pipenv --user, Install pipenv]
+  - [pip3 install -U thefuck --user, Install thefuck]
+  - ['echo "chsh -s $(which zsh)"', Make zsh default]
+
 - link:
     ~/.shell: shell
     ~/.bash_profile: config/bash_profile
@@ -33,12 +43,3 @@
     ~/.editorconfig: config/editorconfig
     ~/.nanorc: config/nanorc
 
-- shell:
-    - [~/.fzf/install]
-    - [pip install --upgrade pip --user, Update pip]
-    - [rm -rf ~/.pyenv]
-    - ['curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash' , Installing pyenv]
-    - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
-    - [pip install -U pipenv --user, Install pipenv]
-    - [pip3 install -U thefuck --user, Install thefuck]
-    - ['echo "chsh -s $(which zsh)"', Make zsh default]
