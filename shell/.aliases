@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# `.aliases` is used to provide custom variables.
+# === Aliases ===
+# back
+alias n='cd ../; ls;'
+# Sorts directories in top, colors, and prints `/` at directories:
+alias ls="ls -F --color=auto --group-directories-first --sort=extension"
+alias la="ls -la"
+# Copy public key to clipboard:
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+# Good 'ol Clear Screen command
+alias cls='clear'
+# Stop after sending 5 packets
+alias ping='time ping -c 5'
+# Copy files with rsync
+alias copy="rsync --progress -ravz"
+#zshrc actions
+alias zshconfig="mcedit ${HOME}/.zshrc"
+alias zshreload="source ${HOME}/.zshrc"
+# reload envs
+alias reload!='exec "$SHELL" -l'
+# htop с сортировкой процессов по потреблению памяти
+alias ht='htop --sort-key=M_RESIDENT'

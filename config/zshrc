@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export ZSH="$HOME/.oh-my-zsh"
+# That way Antigen will store it's info in an independent file, so it won't get corrupted by any other script/software
+export ADOTDIR="${HOME}/.antigen"
+export ANTIGEN_COMPDUMP="${ADOTDIR}/.zcompdump"
+export ANTIGEN_LOG="${ADOTDIR}/antigen.log"
+
+# Using Antigen 2.0.x (from develop branch), it automatically check for cache and load it if its exists
+typeset -A ANTIGEN_CHECK_FILES=("${HOME}/.zshrc" "${HOME}/.antigenrc")
+source "${HOME}/.antigen.zsh"
+antigen init "${HOME}/.antigenrc"
+
+# Terminix(Tilix) fix for VTE issue
+# if [[ $TILIX_ID ]]; then
+#     source "/etc/profile.d/vte-2.91.sh"
+# fi
+
+# OMZ settings
+DEFAULT_USER=$USER
+CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="false"
+
+POWERLEVEL9K_MODE=
+
+HIST_STAMPS="dd.mm.yyyy"
+HIST_IGNORE_SPACE="true"
+setopt  HIST_IGNORE_ALL_DUPS
+
+source "$HOME/.shell/.keys"
+source "$HOME/.shell/.exports"
+source "$HOME/.shell/.aliases"
+source "$HOME/.shell/.functions"
+source "$HOME/.shell/.external"
+source "$HOME/.shell/.p10k.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

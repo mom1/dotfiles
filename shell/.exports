@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# `.exports` is used to provide custom variables.
+#
+# This file is used as a part of `.shell_env`
+
+# === Path modifications ===
+
+# These lines should be the first ones
+
+# Adds `pipsi` and `pipx` binary files:
+PATH="$HOME/.local/bin:$PATH"
+
+# Adds `poetry` binary, should be added to the end:
+PATH="$PATH:$HOME/.poetry/bin"
+
+PATH="/snap/bin:$PATH"
+
+export PATH
+
+# === General ===
+export TERM=xterm-256color
+
+
+# Editor:
+# export EDITOR=$(which nano)
+
+# GPG:
+export GPG_TTY=$(tty)
+eval "$(gpg-agent --daemon --allow-preset-passphrase > /dev/null 2>&1)"
+
+# Pagers:
+# This affects every invocation of `less`.
+#
+#   -i   case-insensitive search unless search string contains uppercase letters
+#   -R   color
+#   -F   exit if there is less than one page of content
+#   -X   keep content on screen after exit
+#   -M   show more info at the bottom prompt line
+#   -x4  tabs are 4 instead of 8
+export LESS="-iRFXMx4"
+
+# Settings for djui/alias-tips plugin
+export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ pls ll ls"
+
+# If PyEnv installed and folder exists in $HOME - load it.
+# Must be placed at the end of shell config file: https://github.com/pyenv/pyenv#installation
+if [[ -d "${HOME}/.pyenv" ]]; then
+    export PATH="${HOME}/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+eval "$(pipenv --completion)"
+

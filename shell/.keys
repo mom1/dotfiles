@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+bindkey "^[[24;5~" kill-whole-line
+bindkey "^[[3;5~" kill-word
+bindkey "^H" backward-kill-word

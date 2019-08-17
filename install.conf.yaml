@@ -1,0 +1,44 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+    clean:
+      force: true
+
+- clean: [
+    '~',
+]
+
+- link:
+    ~/.shell: shell
+    ~/.bash_profile: config/bash_profile
+    ~/.bashrc: config/bashrc
+    ~/.zshrc: config/zshrc
+    ~/.hushlogin: config/hushlogin
+    ~/.antigenrc: config/antigenrc
+    ~/.antigen.zsh: antigen/antigen.zsh
+    ~/.fzf: fzf/.
+    ~/antigen: antigen/.
+    ~/.config/mc: config/mc/.
+
+    # SSH:
+    ~/.ssh/config: config/ssh_config
+
+    # Git:
+    ~/.gitconfig: config/gitconfig
+    ~/.gitignore_global: config/gitignore
+
+    # Editors:
+    ~/.editorconfig: config/editorconfig
+    ~/.nanorc: config/nanorc
+
+- shell:
+    - [~/.fzf/install]
+    - [pip install --upgrade pip --user, Update pip]
+    - [rm -rf ~/.pyenv]
+    - ['curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash' , Installing pyenv]
+    - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
+    - [pip install -U pipenv --user, Install pipenv]
+    - [pip3 install -U thefuck --user, Install thefuck]
+    - ['echo "chsh -s $(which zsh)"', Make zsh default]
