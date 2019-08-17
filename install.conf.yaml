@@ -12,13 +12,16 @@
 
 - shell:
   - [~/.fzf/install]
-  - [pip install --upgrade pip --user, Update pip]
-  - [rm -rf ~/.pyenv]
-  - ['curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash' , Installing pyenv]
+  - [pip3 install -q --upgrade pip --user, Update pip3]
+  - [pip install -q --upgrade pip --user, Update pip]
   - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
-  - [pip install -U pipenv --user, Install pipenv]
-  - [pip3 install -U thefuck --user, Install thefuck]
-  - ['echo "chsh -s $(which zsh)"', Make zsh default]
+
+- pip:
+    file: requirements.txt
+    binary: pip3
+    user: true    # Like --user
+    stdout: false # Print the execution stdout
+    stderr: true  # Print the execution stderr
 
 - link:
     ~/.shell: shell
@@ -28,9 +31,10 @@
     ~/.hushlogin: config/hushlogin
     ~/.antigenrc: config/antigenrc
     ~/.antigen.zsh: antigen/antigen.zsh
+    ~/.config/mc: config/mc/.
     ~/.fzf: fzf/.
     ~/antigen: antigen/.
-    ~/.config/mc: config/mc/.
+    ~/.pyenv: pyenv/.
 
     # SSH:
     ~/.ssh/config: config/ssh_config
