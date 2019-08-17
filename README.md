@@ -1,5 +1,5 @@
 # MaxST's dotfiles
-dotfiles for the developer happiness:
+Dotfiles for the developer's happiness:
 - zsh
 - timeshift
 - sublime-text, sublime-merge,
