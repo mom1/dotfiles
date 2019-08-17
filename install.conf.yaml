@@ -10,23 +10,8 @@
     '~',
 ]
 
-- shell:
-  - [~/.fzf/install]
-  - [pip3 install -q --upgrade pip --user, Update pip3]
-  - [pip install -q --upgrade pip --user, Update pip]
-  - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
-
-- pip:
-    file: requirements.txt
-    binary: pip3
-    user: true    # Like --user
-    stdout: false # Print the execution stdout
-    stderr: true  # Print the execution stderr
-
 - link:
     ~/.shell: shell
-    ~/.bash_profile: config/bash_profile
-    ~/.bashrc: config/bashrc
     ~/.zshrc: config/zshrc
     ~/.hushlogin: config/hushlogin
     ~/.antigenrc: config/antigenrc
@@ -46,4 +31,22 @@
     # Editors:
     ~/.editorconfig: config/editorconfig
     ~/.nanorc: config/nanorc
+
+- shell:
+  - [~/.fzf/install]
+  - [pip3 install -q --upgrade pip --user, Update pip3]
+  - [pip install -q --upgrade pip --user, Update pip]
+  - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
+
+- link:
+    ~/.bash_profile: config/bash_profile
+    ~/.bashrc: config/bashrc
+
+- pip:
+    file: requirements.txt
+    binary: pip3
+    user: true    # Like --user
+    stdout: false # Print the execution stdout
+    stderr: true  # Print the execution stderr
+
 
