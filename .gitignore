@@ -43,4 +43,5 @@ Package Control.cache/
 #### custom ####
 # *.crt
 # *.key
+panels.ini
 
