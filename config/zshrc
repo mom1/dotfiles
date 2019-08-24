@@ -32,6 +32,6 @@ source "$HOME/.shell/.exports"
 source "$HOME/.shell/.aliases"
 source "$HOME/.shell/.functions"
 source "$HOME/.shell/.external"
-source "$HOME/.shell/.p10k.zsh"
+source "$HOME/.shell/.p10k.v2.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
