@@ -9,6 +9,8 @@
   - ['sudo add-apt-repository -y "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"', Add Google Repo]
   - ['wget -q -O - https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -', Skype Key]
   - ['sudo add-apt-repository -y "deb [arch=amd64] https://repo.skype.com/deb stable main"', Add Skype Repo]
+  - ['sudo add-apt-repository --remove ppa:nrbrtx/xorg-hotkeys']
+  - ['sudo add-apt-repository -y ppa:nrbrtx/xorg-hotkeys', Fix keyboard]
   - [apt-cache policy docker-ce]
 
 
@@ -97,7 +99,7 @@
     zsh:
     elementary-tweaks: ppa:philip.scott/elementary-tweaks
     timeshift: ppa:teejee2008/ppa
-    
+
 
 - shell:
   - ['sudo usermod -aG docker ${USER}', Docker Not Root]
@@ -105,6 +107,8 @@
   - ['sudo chmod +x /usr/local/bin/docker-compose', Executable Composer]
   - [sudo snap install telegram-desktop --edge]
   - [sudo snap install node --classic --channel=10]
+  - [sudo apt update, Update]
+  - [sudo apt upgrade, Upgrade]
   - [sudo apt autoremove, Cleaning up]
   - [sudo apt autoclean, Cleaning up again]
   - [sudo dpkg-reconfigure libdvd-pkg]
