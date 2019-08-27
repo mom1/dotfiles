@@ -21,3 +21,6 @@ alias zshreload="source ${HOME}/.zshrc"
 alias reload!='exec "$SHELL" -l'
 # htop с сортировкой процессов по потреблению памяти
 alias ht='htop --sort-key=M_RESIDENT'
+# python
+alias py='python'
+alias py3='python3'
