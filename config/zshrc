@@ -25,7 +25,9 @@ POWERLEVEL9K_MODE=
 
 HIST_STAMPS="dd.mm.yyyy"
 HIST_IGNORE_SPACE="true"
-setopt  HIST_IGNORE_ALL_DUPS
+
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+# setopt  HIST_IGNORE_ALL_DUPS
 
 source "$HOME/.shell/.keys"
 source "$HOME/.shell/.exports"

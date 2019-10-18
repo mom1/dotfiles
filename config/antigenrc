@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
+    poetry
     command-not-found
     cp
     darvid/zsh-poetry
@@ -14,7 +15,6 @@ antigen bundles <<EOBUNDLES
     per-directory-history
     pip
     pipenv
-    poetry
     pyenv
     python
     sublime

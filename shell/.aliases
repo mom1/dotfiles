@@ -24,3 +24,5 @@ alias ht='htop --sort-key=M_RESIDENT'
 # python
 alias py='python'
 alias py3='python3'
+# django
+alias srun='python manage.py runserver'
