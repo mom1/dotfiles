@@ -6,6 +6,8 @@ export ADOTDIR="${HOME}/.antigen"
 export ANTIGEN_COMPDUMP="${ADOTDIR}/.zcompdump"
 export ANTIGEN_LOG="${ADOTDIR}/antigen.log"
 
+builtin . /usr/share/io.elementary.terminal/enable-zsh-completion-notifications || builtin true
+
 # Using Antigen 2.0.x (from develop branch), it automatically check for cache and load it if its exists
 typeset -A ANTIGEN_CHECK_FILES=("${HOME}/.zshrc" "${HOME}/.antigenrc")
 source "${HOME}/.antigen.zsh"
