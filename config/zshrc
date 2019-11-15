@@ -13,11 +13,6 @@ typeset -A ANTIGEN_CHECK_FILES=("${HOME}/.zshrc" "${HOME}/.antigenrc")
 source "${HOME}/.antigen.zsh"
 antigen init "${HOME}/.antigenrc"
 
-# Terminix(Tilix) fix for VTE issue
-# if [[ $TILIX_ID ]]; then
-#     source "/etc/profile.d/vte-2.91.sh"
-# fi
-
 # OMZ settings
 DEFAULT_USER=$USER
 CASE_SENSITIVE="false"
@@ -29,7 +24,8 @@ HIST_STAMPS="dd.mm.yyyy"
 HIST_IGNORE_SPACE="true"
 
 ZSH_AUTOSUGGEST_USE_ASYNC=1
-# setopt  HIST_IGNORE_ALL_DUPS
+autoload -U bashcompinit
+bashcompinit
 
 source "$HOME/.shell/.keys"
 source "$HOME/.shell/.exports"

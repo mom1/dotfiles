@@ -20,6 +20,7 @@ antigen bundles <<EOBUNDLES
     sublime
     thefuck
     unixorn/autoupdate-antigen.zshplugin
+    ubuntu
     zdharma/fast-syntax-highlighting
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions

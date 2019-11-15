@@ -1,3 +1,8 @@
+darglint
+flake8
+isort
 pipenv
 thefuck
+visidata
+yapf
 youtube-dl
