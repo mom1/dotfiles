@@ -4,7 +4,6 @@ antigen bundles <<EOBUNDLES
     poetry
     command-not-found
     cp
-    darvid/zsh-poetry
     django
     djui/alias-tips
     docker
@@ -12,7 +11,7 @@ antigen bundles <<EOBUNDLES
     extract
     git
     history
-    per-directory-history
+    CyberShadow/per-directory-history
     pip
     pipenv
     pyenv
