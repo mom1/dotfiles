@@ -1,0 +1,13 @@
+- shell:
+  - [~/.fzf/install]
+  - [pip3 install -q --upgrade pip --user, Update pip3]
+  - [python -m pip install -q --upgrade pip --user, Update pip]
+  - [python3 -m pip install --user pipx, Install pipx]
+  - [python3 -m pipx ensurepath, Install pipx]
+  - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | POETRY_PREVIEW=1 python3', Installing poetry]
+
+- pipx:
+    file: requirements.txt
+    user: true    # Like --user
+    stdout: false # Print the execution stdout
+    stderr: true  # Print the execution stderr
