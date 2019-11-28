@@ -64,6 +64,6 @@
 
 - shell:
   - [sudo apt update, Update]
-  - [sudo apt upgrade, Upgrade]
-  - [sudo apt autoremove, Cleaning up]
-  - [sudo apt autoclean, Cleaning up again]
+  - [sudo apt upgrade -y, Upgrade]
+  - [sudo apt autoremove -y, Cleaning up]
+  - [sudo apt autoclean -y, Cleaning up again]
