@@ -9,97 +9,23 @@
   - ['sudo add-apt-repository -y "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"', Add Google Repo]
   - ['wget -q -O - https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -', Skype Key]
   - ['sudo add-apt-repository -y "deb [arch=amd64] https://repo.skype.com/deb stable main"', Add Skype Repo]
-  - ['sudo add-apt-repository --remove ppa:nrbrtx/xorg-hotkeys']
-  - ['sudo add-apt-repository -y ppa:nrbrtx/xorg-hotkeys', Fix keyboard]
   - [apt-cache policy docker-ce]
 
-
 - aptget:
-    apt-transport-https:
-    arj:
-    build-essential:
-    bzip2:
-    ca-certificates:
-    cabextract:
-    cmake:
-    curl:
-    davfs2:
+    gnome-system-monitor:
     docker-ce-cli:
     docker-ce:
-    ffmpeg:
-    fonts-arphic-ukai:
-    fonts-arphic-uming:
-    fonts-noto-cjk-extra:
-    fonts-powerline:
-    git:
-    gnome-system-monitor:
-    gnupg-agent:
     google-chrome-stable:
     gparted:
-    gzip:
-    less:
-    libavcodec-extra:
-    libbz2-dev:
-    libdvd-pkg:
-    libedit-dev:
-    libffi-dev:
-    liblzma-dev:
-    libncurses5-dev:
-    libncursesw5-dev:
-    libreadline-dev:
     libreoffice-help-ru:
     libreoffice:
-    libsqlite3-dev:
-    libssl-dev:
-    llvm:
-    lunzip:
-    lzip:
-    make:
-    mc:
-    meson:
-    mpack:
-    mysql-client-5.7:
-    mysql-client-core-5.7:
-    openssh-server:
-    openssl:
-    p7zip-full:
-    p7zip:
-    poedit:
-    powerline:
-    pv:
-    python-dev:
-    python-openssl:
-    python-pip:
-    python3-dbus:
-    python3-dev:
-    python3-gi:
-    python3-minimal:
-    python3-pip:
-    python3-setuptools:
-    python3:
-    rar:
-    rsync:
-    sharutils:
-    shutter:
-    silversearcher-ag:
     skypeforlinux:
     software-properties-common:
     software-properties-gtk:
     sublime-merge:
     sublime-text:
     synaptic:
-    tk-dev:
     ubuntu-restricted-extras:
-    unace:
-    unrar:
-    uudeview:
-    wget:
-    xz-utils:
-    zlib1g-dev:
-    zsh:
-    elementary-tweaks: ppa:philip.scott/elementary-tweaks
-    timeshift: ppa:teejee2008/ppa
-
 
 - shell:
   - ['sudo usermod -aG docker ${USER}', Docker Not Root]
@@ -111,4 +37,3 @@
   - [sudo apt upgrade, Upgrade]
   - [sudo apt autoremove, Cleaning up]
   - [sudo apt autoclean, Cleaning up again]
-  - [sudo dpkg-reconfigure libdvd-pkg]

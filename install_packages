@@ -3,13 +3,27 @@ sudo true
 
 set -e
 
-CONFIG="install_packages.conf.yaml"
+CONFIG_GUI="install_packages_gui.conf.yaml"
+CONFIG_COMMON="install_packages_common.conf.yaml"
+CONFIG_ELEMENTARYOS="install_elementary_staff.conf.yaml"
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
-git submodule update --init --recursive --remote
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG_COMMON}" -p "dotbot_plugin_aptget/aptget.py" "${@}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" -p "dotbot_plugin_aptget/aptget.py" "${@}"
+read -p "Install GUI APPS? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG_GUI}" -p "dotbot_plugin_aptget/aptget.py" "${@}"
+fi
+
+read -p "Install ElementaryOS staff? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG_ELEMENTARYOS}" -p "dotbot_plugin_aptget/aptget.py" "${@}"
+fi

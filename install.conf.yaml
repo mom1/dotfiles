@@ -35,9 +35,10 @@
 - shell:
   - [~/.fzf/install]
   - [pip3 install -q --upgrade pip --user, Update pip3]
-  - [pip install -q --upgrade pip --user, Update pip]
-  - [pip install -U pipx --user, Install pipx]
-  - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python', Installing poetry]
+  - [python -m pip install -q --upgrade pip --user, Update pip]
+  - [python3 -m pip install --user pipx, Install pipx]
+  - [python3 -m pipx ensurepath, Install pipx]
+  - ['curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | POETRY_PREVIEW=1 python3', Installing poetry]
 
 - link:
     ~/.bash_profile: config/bash_profile

@@ -1,4 +1,3 @@
-darglint
 flake8
 isort
 pipenv
