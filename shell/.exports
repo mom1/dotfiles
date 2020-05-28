@@ -42,22 +42,31 @@ eval "$(gpg-agent --daemon --allow-preset-passphrase > /dev/null 2>&1)"
 #   -M   show more info at the bottom prompt line
 #   -x4  tabs are 4 instead of 8
 export LESS="-iRFXMx4"
+export PAGER='less'
+export MANPAGER='less'
 
 # Settings for djui/alias-tips plugin
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "
-export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ pls ll ls"
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ pls ll ls py"
 
 # If PyEnv installed and folder exists in $HOME - load it.
 # Must be placed at the end of shell config file: https://github.com/pyenv/pyenv#installation
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="${HOME}/.pyenv/bin:$PATH"
 
+# notify
+export AUTO_NOTIFY_THRESHOLD=30
+export AUTO_NOTIFY_EXPIRE_TIME=5000
+
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-eval "$(register-python-argcomplete pipx)"
-
 eval "$(pipenv --completion)"
+# eval "$(register-python-argcomplete pipx)"
 
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY="$HOME/.node_history"
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy'

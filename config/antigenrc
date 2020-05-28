@@ -25,6 +25,7 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
     voronkovich/project.plugin.zsh
+    MichaelAquilina/zsh-auto-notify
 EOBUNDLES
 antigen theme romkatv/powerlevel10k
 antigen apply

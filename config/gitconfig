@@ -15,10 +15,18 @@
   # gpgsign = true
 [push]
   default = simple
+[fetch]
+  # Prune branches that no longer exist remote.
+  # Same for tags.
+  prune = true
+  pruneTags = true
 [user]
   useConfigOnly = true
 [diff]
   indentHeuristic = on
+  noprefix = true
+[diff "nodiff"]
+  command = true
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
