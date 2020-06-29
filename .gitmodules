@@ -1,12 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "dotbot_plugin_aptget.git"]
-	path = dotbot_plugin_aptget
-	url = https://github.com/dein0s/dotbot_plugin_aptget.git
-[submodule "antigen.git"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen.git
 [submodule "fzf.git"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
@@ -16,3 +10,9 @@
 [submodule "pyenv"]
 	path = pyenv
 	url = https://github.com/pyenv/pyenv.git
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen.git
+[submodule "dotbot_plugin_aptget"]
+	path = dotbot_plugin_aptget
+	url = https://github.com/dein0s/dotbot_plugin_aptget.git
