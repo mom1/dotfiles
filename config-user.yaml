@@ -64,7 +64,7 @@ dotfiles:
     src: bashrc
     dst: ~/.bashrc
 profiles:
-  mac.local:
+  mac_os:
     dotfiles:
       - d_pyenv
       - f_gitconfig

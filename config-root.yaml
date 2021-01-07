@@ -31,7 +31,7 @@ dotfiles:
       - thefuck_install
       - pipx_install
 profiles:
-  mac.local:
+  mac_os:
     dotfiles:
       - mac_install
   linux:
