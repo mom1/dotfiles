@@ -4,7 +4,10 @@
 # back
 alias n='cd ../; ls;'
 # Sorts directories in top, colors, and prints `/` at directories:
+if [ -f /usr/local/bin/gls ] ; then
 alias ls="/usr/local/bin/gls --color -h --group-directories-first -F --sort=extension"
+fi
+
 alias la="ls -la"
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
