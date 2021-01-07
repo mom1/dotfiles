@@ -1,4 +1,18 @@
 ---
+.common-list: &common-list
+  - d_pyenv
+  - f_gitconfig
+  - f_ssh_config
+  - d_shell
+  - f_zshrc
+  - f_hushlogin
+  - f_antigenrc
+  - d_mc
+  - f_gitignore_global
+  - f_editorconfig
+  - f_nanorc
+  - f_bash_profile
+  - f_bashrc
 actions:
   post:
     pip_upgrade: python -m pip install --upgrade pip --user
@@ -66,31 +80,7 @@ dotfiles:
 profiles:
   mac_os:
     dotfiles:
-      - d_pyenv
-      - f_gitconfig
-      - f_ssh_config
-      - d_shell
-      - f_zshrc
-      - f_hushlogin
-      - f_antigenrc
-      - d_mc
-      - f_gitignore_global
-      - f_editorconfig
-      - f_nanorc
-      - f_bash_profile
-      - f_bashrc
+      - *common-list
   linux:
     dotfiles:
-      - d_pyenv
-      - f_gitconfig
-      - f_ssh_config
-      - d_shell
-      - f_zshrc
-      - f_hushlogin
-      - f_antigenrc
-      - d_mc
-      - f_gitignore_global
-      - f_editorconfig
-      - f_nanorc
-      - f_bash_profile
-      - f_bashrc
+      - *common-list
