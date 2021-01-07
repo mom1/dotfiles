@@ -6,6 +6,7 @@ make
 midnight-commander
 nano
 pgcli
+pipx
 the_silver_searcher
 thefuck
 wget

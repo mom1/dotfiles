@@ -8,7 +8,6 @@ actions:
     apt_packages_install: 'apt install $(grep -vE "^\s*#" dotfiles/apt_packages  | tr "\n" " ")'
     # pip
     thefuck_install: python3 -m pip install -U thefuck
-    pipx_install: python3 -m pip install -U --user pipx
 config:
   backup: true
   create: true
@@ -29,7 +28,6 @@ dotfiles:
       - apt_packages_install
       - poetry_install
       - thefuck_install
-      - pipx_install
 profiles:
   mac_os:
     dotfiles:

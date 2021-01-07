@@ -14,8 +14,11 @@
   - f_bash_profile
   - f_bashrc
 actions:
+  pre:
+    pipx_install: python3 -m pip install --user -U pipx
   post:
     pip_upgrade: python -m pip install --upgrade pip --user
+    pipx_install_packages: pipx install -r dotfiles/requirements.txt
 config:
   backup: true
   create: true
@@ -28,6 +31,7 @@ dotfiles:
     dst: ~/.pyenv
     actions:
       - pip_upgrade
+      - pipx_install_packages
   d_fzf:
     src: ../fzf
     dst: ~/.fzf
@@ -84,3 +88,5 @@ profiles:
   linux:
     dotfiles:
       - *common-list
+    actions:
+      - pipx_install
