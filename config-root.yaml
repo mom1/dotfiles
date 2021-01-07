@@ -1,0 +1,39 @@
+---
+actions:
+  post:
+    poetry_install: curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+    # brew
+    brew_packages_install: cat dotfiles/macos_packages | xargs brew install
+    # apt
+    apt_packages_install: 'apt install $(grep -vE "^\s*#" dotfiles/apt_packages  | tr "\n" " ")'
+    # pip
+    thefuck_install: python3 -m pip install -U thefuck
+    pipx_install: python3 -m pip install -U --user pipx
+config:
+  backup: true
+  create: true
+  dotpath: dotfiles
+  link_dotfile_default: link
+  link_on_import: link
+dotfiles:
+  mac_install:
+    src:
+    dst:
+    actions:
+      - brew_packages_install
+      # - poetry_install
+  linux_install:
+    src:
+    dst:
+    actions:
+      - apt_packages_install
+      - poetry_install
+      - thefuck_install
+      - pipx_install
+profiles:
+  mac.local:
+    dotfiles:
+      - mac_install
+  linux:
+    dotfiles:
+      - linux_install

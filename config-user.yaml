@@ -1,0 +1,96 @@
+---
+actions:
+  post:
+    pip_upgrade: python -m pip install --upgrade pip --user
+config:
+  backup: true
+  create: true
+  dotpath: dotfiles
+  link_dotfile_default: link
+  link_on_import: link
+dotfiles:
+  d_pyenv:
+    src: ../pyenv
+    dst: ~/.pyenv
+    actions:
+      - pip_upgrade
+  d_fzf:
+    src: ../fzf
+    dst: ~/.fzf
+    actions:
+      post:
+        - ~/.fzf/install
+  d_antigen:
+    src: ../antigen
+    dst: ~/antigen
+  f_antigen.zsh:
+    src: ../antigen/antigen.zsh
+    dst: ~/.antigen.zsh
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
+  f_ssh_config:
+    src: ssh/config
+    dst: ~/.ssh/config
+  d_shell:
+    src: shell
+    dst: ~/.shell
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  f_hushlogin:
+    src: hushlogin
+    dst: ~/.hushlogin
+  f_antigenrc:
+    src: antigenrc
+    dst: ~/.antigenrc
+  d_mc:
+    src: config/mc
+    dst: ~/.config/mc
+    link: link_children
+  f_gitignore_global:
+    src: gitignore_global
+    dst: ~/.gitignore_global
+  f_editorconfig:
+    src: editorconfig
+    dst: ~/.editorconfig
+  f_nanorc:
+    src: nanorc
+    dst: ~/.nanorc
+  f_bash_profile:
+    src: bash_profile
+    dst: ~/.bash_profile
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+profiles:
+  mac.local:
+    dotfiles:
+      - d_pyenv
+      - f_gitconfig
+      - f_ssh_config
+      - d_shell
+      - f_zshrc
+      - f_hushlogin
+      - f_antigenrc
+      - d_mc
+      - f_gitignore_global
+      - f_editorconfig
+      - f_nanorc
+      - f_bash_profile
+      - f_bashrc
+  linux:
+    dotfiles:
+      - d_pyenv
+      - f_gitconfig
+      - f_ssh_config
+      - d_shell
+      - f_zshrc
+      - f_hushlogin
+      - f_antigenrc
+      - d_mc
+      - f_gitignore_global
+      - f_editorconfig
+      - f_nanorc
+      - f_bash_profile
+      - f_bashrc

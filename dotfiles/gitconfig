@@ -1,0 +1,62 @@
+[core]
+  excludesfile = ~/.gitignore_global
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFXM
+  show = diff-so-fancy | less --tabs=1,5 -RFXM
+[credential]
+  helper = osxkeychain
+[http]
+  postBuffer = 524288000
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[commit]
+  # gpgsign = true
+[push]
+  default = simple
+[fetch]
+  # Prune branches that no longer exist remote.
+  # Same for tags.
+  prune = true
+  pruneTags = true
+[user]
+  useConfigOnly = true
+[diff]
+  indentHeuristic = on
+  noprefix = true
+[diff "nodiff"]
+  command = true
+[rerere]
+  # Remember my merges
+  # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+    enabled = 1
+[submodule]
+    recurse = true
+    fetchJobs = 0
+
+# Colors
+[color]
+  ui = true
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = white bold 52
+  newNormal = green bold
+  newHighlight = white bold 22
+[color "diff"]
+  meta = black
+  frag = blue bold
+  commit = black bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+# Allow local customizations in the .gitconfig_local file
+# expample:
+# [user]
+#         name = User
+#         email = email@email.com
+[include]
+  path = ~/.gitconfig_local
+[gpg]
+  program = gpg2

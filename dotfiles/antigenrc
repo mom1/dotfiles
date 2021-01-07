@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+antigen use oh-my-zsh
+antigen bundles <<EOBUNDLES
+    poetry
+    command-not-found
+    cp
+    djui/alias-tips
+    docker
+    docker-compose
+    extract
+    git
+    history
+    CyberShadow/per-directory-history
+    pip
+    pipenv
+    pyenv
+    python
+    sublime
+    thefuck
+    unixorn/autoupdate-antigen.zshplugin
+    ubuntu
+    zdharma/fast-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
+    zsh-users/zsh-history-substring-search
+    voronkovich/project.plugin.zsh
+    MichaelAquilina/zsh-auto-notify
+    django
+EOBUNDLES
+antigen theme romkatv/powerlevel10k
+antigen apply
