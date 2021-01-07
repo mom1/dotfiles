@@ -5,7 +5,7 @@ actions:
     # brew
     brew_packages_install: cat dotfiles/macos_packages | xargs brew install
     # apt
-    apt_packages_install: 'apt install $(grep -vE "^\s*#" dotfiles/apt_packages  | tr "\n" " ")'
+    apt_packages_install: 'apt install --no-install-recommends -y $(grep -vE "^\s*#" dotfiles/apt_packages  | tr "\n" " ")'
     # pip
     thefuck_install: python3 -m pip install -U thefuck
 config:

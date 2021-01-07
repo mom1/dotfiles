@@ -24,7 +24,9 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
     voronkovich/project.plugin.zsh
+    {%@@ if env['INSTALL_GUI'] @@%}
     MichaelAquilina/zsh-auto-notify
+    {%@@ endif @@%}
     django
 EOBUNDLES
 antigen theme romkatv/powerlevel10k

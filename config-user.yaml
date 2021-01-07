@@ -19,6 +19,7 @@ actions:
   post:
     pip_upgrade: python -m pip install --upgrade pip --user
     pipx_install_packages: pipx install -r dotfiles/requirements.txt
+    fzf_install: ~/.fzf/install
 config:
   backup: true
   create: true
@@ -36,8 +37,7 @@ dotfiles:
     src: ../fzf
     dst: ~/.fzf
     actions:
-      post:
-        - ~/.fzf/install
+      - fzf_install
   d_antigen:
     src: ../antigen
     dst: ~/antigen
@@ -84,9 +84,9 @@ dotfiles:
 profiles:
   mac_os:
     dotfiles:
-      - *common-list
+      *common-list
   linux:
     dotfiles:
-      - *common-list
+      *common-list
     actions:
       - pipx_install
