@@ -24,5 +24,13 @@ sudo ./dotdrop.sh install -p <profile_name> --cfg=config-root.yaml
 
 ```bash
 # For user settings
-./dotdrop.sh install -p <profile_name> --cfg=config-user.yaml
+./dotdrop.sh install -f -p <profile_name> --cfg=config-user.yaml
+# For user settings with gui
+INSTALL_GUI=1 ./dotdrop.sh install -f -p <profile_name> --cfg=config-user.yaml
 ```
+
+
+### If error build python in mac os
+
+`sudo rm -rf /Library/Developer/CommandLineTools`
+`xcode-select --install`

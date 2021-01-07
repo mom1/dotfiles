@@ -14,25 +14,25 @@
   - f_bash_profile
   - f_bashrc
 actions:
-  pre:
-    pipx_install: python3 -m pip install --user -U pipx
   post:
-    pip_upgrade: python -m pip install --upgrade pip --user
-    pipx_install_packages: pipx install -r dotfiles/requirements.txt
+    pip_upgrade: python3 -m pip install --upgrade pip --user
+    pipx_install: python3 -m pip install -U pipx
+    pipx_install_packages: while read in; do pipx install "$in"; done < dotfiles/requirements.txt
     fzf_install: ~/.fzf/install
+    pyenv_install_python: pyenv install {{@@ python_version @@}}
+    pyenv_set_global_python: pyenv global {{@@ python_version @@}}
 config:
   backup: true
   create: true
   dotpath: dotfiles
   link_dotfile_default: link
   link_on_import: link
+variables:
+  python_version: "3.8.6"
 dotfiles:
   d_pyenv:
     src: ../pyenv
     dst: ~/.pyenv
-    actions:
-      - pip_upgrade
-      - pipx_install_packages
   d_fzf:
     src: ../fzf
     dst: ~/.fzf
@@ -81,6 +81,15 @@ dotfiles:
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
+  f_python:
+    src:
+    dst:
+    actions:
+      - pip_upgrade
+      - pyenv_install_python
+      - pyenv_set_global_python
+      - pipx_install
+      - pipx_install_packages
 profiles:
   mac_os:
     dotfiles:
@@ -88,5 +97,6 @@ profiles:
   linux:
     dotfiles:
       *common-list
-    actions:
-      - pipx_install
+  python:
+    dotfiles:
+      - f_python

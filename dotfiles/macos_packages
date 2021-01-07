@@ -5,9 +5,13 @@ git
 make
 midnight-commander
 nano
+openssl
 pgcli
 pipx
+readline
 the_silver_searcher
 thefuck
 wget
+xz
+zlib
 zsh
