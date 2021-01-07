@@ -13,10 +13,12 @@ install:
 
 ```bash
 git clone -b dotdrop --recurse-submodules https://github.com/mom1/dotfiles.git && cd dotfiles
+pip3 install --user -r dotdrop/requirements.txt
 ```
 
 ```bash
-# For system settings
+# For system settings and install linux packages
+sudo pip3 install -r dotdrop/requirements.txt
 sudo ./dotdrop.sh install -p <profile_name> --cfg=config-root.yaml
 ```
 
