@@ -10,7 +10,9 @@
 # see: `brew info openssl` for more information.
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
+{%@@ if profile == 'mac_os' @@%}
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+{%@@ endif @@%}
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 
