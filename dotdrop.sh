@@ -24,7 +24,7 @@ sub="dotdrop"
 # pivot
 cd "${cur}" || { echo "Directory \"${cur}\" doesn't exist, aborting." && exit 1; }
 # init/update the submodule
-if [ "${DOTDROP_AUTOUPDATE-yes}" = yes ] ; then
+if [[ "${DOTDROP_AUTOUPDATE-yes}" = yes && "$EUID" -ne 0 ]] ; then
   git submodule update --init --recursive
   git submodule update --remote dotdrop
   git submodule update --remote pyenv
