@@ -19,7 +19,7 @@ actions:
     pipx_install: python3 -m pip install -U pipx
     pipx_install_packages: while read in; do pipx install "$in"; done < dotfiles/requirements.txt
     fzf_install: ~/.fzf/install
-    pyenv_install_python: pyenv install {{@@ python_version @@}}
+    pyenv_install_python: pyenv install -s {{@@ python_version @@}}
     pyenv_set_global_python: pyenv global {{@@ python_version @@}}
 config:
   backup: true
