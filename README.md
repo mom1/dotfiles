@@ -8,6 +8,7 @@ Dotfiles for the developer's happiness:
 
 - `mac_os` - For MacOS (WIP)
 - `linux` - For linux (WIP)
+- `python` - install python and set global version
 
 install:
 

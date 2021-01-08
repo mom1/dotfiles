@@ -81,6 +81,10 @@ export AUTO_NOTIFY_EXPIRE_TIME=5000
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+# pipx completion, place after pyenv init
+if command -v pipx 1>/dev/null 2>&1; then
+  eval "$(register-python-argcomplete pipx)"
+fi
 
 eval "$(pipenv --completion)"
 # eval "$(register-python-argcomplete pipx)"

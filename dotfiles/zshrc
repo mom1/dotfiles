@@ -33,4 +33,3 @@ source "$HOME/.shell/.external"
 source "$HOME/.shell/.p10k.v2.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(register-python-argcomplete pipx)"
