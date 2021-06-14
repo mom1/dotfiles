@@ -99,6 +99,7 @@ profiles:
   linux:
     dotfiles:
       *common-list
+      - d_fzf
   python:
     dotfiles:
       - f_python
