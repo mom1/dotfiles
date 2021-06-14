@@ -6,6 +6,7 @@
   - d_shell
   - f_zshrc
   - f_hushlogin
+  - d_antigen
   - f_antigenrc
   - d_mc
   - f_gitignore_global
