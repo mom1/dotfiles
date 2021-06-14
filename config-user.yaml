@@ -8,6 +8,7 @@
   - f_hushlogin
   - d_antigen
   - f_antigenrc
+  - f_antigen.zsh
   - d_mc
   - f_gitignore_global
   - f_editorconfig
