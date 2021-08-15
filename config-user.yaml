@@ -95,10 +95,38 @@ dotfiles:
 profiles:
   mac_os:
     dotfiles:
-      *common-list
+      - d_pyenv
+      - f_gitconfig
+      - f_ssh_config
+      - d_shell
+      - f_zshrc
+      - f_hushlogin
+      - d_antigen
+      - f_antigenrc
+      - f_antigen.zsh
+      - d_mc
+      - f_gitignore_global
+      - f_editorconfig
+      - f_nanorc
+      - f_bash_profile
+      - f_bashrc
   linux:
     dotfiles:
-      *common-list
+      - d_pyenv
+      - f_gitconfig
+      - f_ssh_config
+      - d_shell
+      - f_zshrc
+      - f_hushlogin
+      - d_antigen
+      - f_antigenrc
+      - f_antigen.zsh
+      - d_mc
+      - f_gitignore_global
+      - f_editorconfig
+      - f_nanorc
+      - f_bash_profile
+      - f_bashrc
       - d_fzf
   python:
     dotfiles:

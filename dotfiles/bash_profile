@@ -4,6 +4,6 @@
 # So this file only includes `brew` binaries.
 
 # global:
-PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
 
 export PATH="$(pyenv root)/shims:$HOME/.poetry/bin:$PATH"
