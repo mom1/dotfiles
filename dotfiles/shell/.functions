@@ -25,8 +25,3 @@ function fbig {
     find ./ -xdev -type f -size +$@G | sed -e 's/"/"\\""/g' -e 's/.*/"&"/' |
     xargs du -sh | sort -rn | sed -e 's/.*\.$/Files not found/g'
 }
-
-
-function t {
-    cd $@ && ls || cd $1; 
-}

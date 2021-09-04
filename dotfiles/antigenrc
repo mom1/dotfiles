@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
-    poetry
     command-not-found
     cp
     djui/alias-tips
@@ -23,7 +22,6 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
-    voronkovich/project.plugin.zsh
     {%@@ if env.get('INSTALL_GUI') == '1' @@%}
     MichaelAquilina/zsh-auto-notify
     {%@@ endif @@%}

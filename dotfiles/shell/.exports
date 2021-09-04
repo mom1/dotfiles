@@ -18,9 +18,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
 # === Path modifications ===
 
-# These lines should be the first ones
-
-# Adds `pipsi` and `pipx` binary files:
 PATH="$HOME/.local/bin:$PATH"
 
 # Adds `poetry` binary, should be added to the end:
@@ -32,10 +29,6 @@ export PATH
 
 # === General ===
 export TERM=xterm-256color
-
-export PROJECTS=~/Projects
-export PROJECTS_TMP=/tmp/projects
-
 
 # Editor:
 # export EDITOR=$(which nano)
@@ -66,27 +59,15 @@ export MANPAGER='less'
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ pls ll ls py"
 
-# If PyEnv installed and folder exists in $HOME - load it.
-# Must be placed at the end of shell config file: https://github.com/pyenv/pyenv#installation
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # notify
 export AUTO_NOTIFY_THRESHOLD=30
 export AUTO_NOTIFY_EXPIRE_TIME=5000
 
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 # pipx completion, place after pyenv init
 if command -v pipx 1>/dev/null 2>&1; then
   eval "$(register-python-argcomplete pipx)"
 fi
-
-# eval "$(pipenv --completion)"
-# eval "$(register-python-argcomplete pipx)"
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY="$HOME/.node_history"

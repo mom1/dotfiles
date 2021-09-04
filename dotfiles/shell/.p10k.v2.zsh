@@ -174,7 +174,7 @@ fi
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
   # Make the icon bold.
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='%B${P9K_CONTENT}'
+  # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='%B${P9K_CONTENT}'
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
@@ -203,7 +203,7 @@ fi
   # segment is always an anchor.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
   # Display anchor directory segments in bold.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
   # Don't shorten directories that contain files matching this pattern. They are anchors.
   typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER='(.shorten_folder_marker|.bzr|CVS|.git|.hg|.svn|.terraform|.citc)'
   # Don't shorten this many last directory segments. They are anchors.

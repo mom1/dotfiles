@@ -5,9 +5,9 @@
 
 # global:
 PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
-
-export PATH="$(pyenv root)/shims:$HOME/.poetry/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$HOME/.poetry/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
 fi
