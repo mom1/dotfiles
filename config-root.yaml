@@ -3,7 +3,7 @@ actions:
   post:
     poetry_install: curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
     # brew
-    brew_packages_install: cat dotfiles/macos_packages | xargs brew install
+    brew_packages_install: 'for i in $(cat dotfiles/macos_packages)\; do\; brew install "$i"\; done'
     # apt
     apt_packages_install: 'apt install --no-install-recommends -y $(grep -vE "^\s*#" dotfiles/apt_packages  | tr "\n" " ")'
     # pip
