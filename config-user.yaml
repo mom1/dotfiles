@@ -31,7 +31,7 @@ config:
   link_dotfile_default: link
   link_on_import: link
 variables:
-  python_version: "3.8.6"
+  python_version: "3.10.5"
 dotfiles:
   d_pyenv:
     src: ../pyenv
