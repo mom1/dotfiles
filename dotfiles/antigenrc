@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
+    poetry
     command-not-found
     cp
     djui/alias-tips
@@ -17,7 +18,9 @@ antigen bundles <<EOBUNDLES
     sublime
     thefuck
     unixorn/autoupdate-antigen.zshplugin
+    {%@@ if profile == 'linux' @@%}
     ubuntu
+    {%@@ endif @@%}
     zdharma/fast-syntax-highlighting
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
@@ -27,5 +30,8 @@ antigen bundles <<EOBUNDLES
     {%@@ endif @@%}
     django
 EOBUNDLES
+
+antigen bundle $ZSH/custom/plugins/poetry/
+
 antigen theme romkatv/powerlevel10k
 antigen apply

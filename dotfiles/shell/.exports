@@ -8,11 +8,14 @@
 
 # This is required because `openssl` is keg-only in `brew`,
 # see: `brew info openssl` for more information.
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
+# export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
 {%@@ if profile == 'mac_os' @@%}
 export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
-export PATH="$PATH:/opt/homebrew/bin"
+export PATH="/opt/homebrew/bin:$PATH"
+export GDAL_LIBRARY_PATH="/opt/homebrew/Cellar/gdal/3.5.0_1/lib/libgdal.dylib"
+export GEOS_LIBRARY_PATH="/opt/homebrew/Cellar/gdal/3.5.0_1/lib/libgeos_c.1.16.0.dylib"
 {%@@ endif @@%}
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 

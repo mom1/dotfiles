@@ -6,6 +6,12 @@ export ADOTDIR="${HOME}/.antigen"
 export ANTIGEN_COMPDUMP="${ADOTDIR}/.zcompdump"
 export ANTIGEN_LOG="${ADOTDIR}/antigen.log"
 
+# libpq configuration
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+
 # Using Antigen 2.0.x (from develop branch), it automatically check for cache and load it if its exists
 typeset -A ANTIGEN_CHECK_FILES=("${HOME}/.zshrc" "${HOME}/.antigenrc")
 source "${HOME}/.antigen.zsh"
@@ -33,3 +39,4 @@ source "$HOME/.shell/.external"
 source "$HOME/.shell/.p10k.v2.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'

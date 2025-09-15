@@ -1,8 +1,5 @@
 [core]
   excludesfile = ~/.gitignore_global
-[pager]
-  diff = diff-so-fancy | less --tabs=1,5 -RFXM
-  show = diff-so-fancy | less --tabs=1,5 -RFXM
 [credential]
   helper = osxkeychain
 [http]
@@ -22,6 +19,8 @@
   pruneTags = true
 [user]
   useConfigOnly = true
+	name = Stolpasov, Maksim
+	email = mstolpasov@gmail.com
 [diff]
   indentHeuristic = on
   noprefix = true
