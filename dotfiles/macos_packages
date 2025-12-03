@@ -3,10 +3,9 @@ font-consolas-for-powerline
 gettext
 git
 make
-midnight-commander
 nano
 openssl
-pipx
+uv
 readline
 the_silver_searcher
 thefuck
@@ -14,3 +13,4 @@ wget
 xz
 zlib
 zsh
+jq

@@ -5,12 +5,3 @@
 
 # global:
 PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$HOME/.poetry/bin:$PATH"
-
-if which pyenv >/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi

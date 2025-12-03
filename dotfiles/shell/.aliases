@@ -24,5 +24,7 @@ alias reload!='exec "$SHELL" -l'
 alias ht='htop --sort-key=M_RESIDENT'
 # django
 alias srun='python manage.py runserver'
+# qwen
+alias qweny='qwen --approval-mode="yolo" -p'
 
 eval $(thefuck --alias)

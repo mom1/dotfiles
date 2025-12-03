@@ -1,6 +1,5 @@
 ---
 .common-list: &common-list
-  - d_pyenv
   - f_gitconfig
   - f_ssh_config
   - d_shell
@@ -18,24 +17,17 @@
   - f_bashrc
 actions:
   post:
-    pip_upgrade: python3 -m pip install --upgrade pip --user
-    pipx_install: python3 -m pip install -U pipx
-    pipx_install_packages: while read in; do pipx install "$in"; done < dotfiles/requirements.txt
+    uv_tools_install: while read in; do uv tool install "$in"; done < dotfiles/requirements.txt
+    uv_tools_upgrade: uv tool upgrade --all
     fzf_install: ~/.fzf/install
-    pyenv_install_python: pyenv install -s {{@@ python_version @@}}
-    pyenv_set_global_python: pyenv global {{@@ python_version @@}}
+    uv_install_linux: "sh -c 'command -v uv >/dev/null 2>&1 || (curl -LsSf https://astral.sh/uv/install.sh | sh)'"
 config:
   backup: true
   create: true
   dotpath: dotfiles
   link_dotfile_default: link
   link_on_import: link
-variables:
-  python_version: "3.10.5"
 dotfiles:
-  d_pyenv:
-    src: ../pyenv
-    dst: ~/.pyenv
   d_fzf:
     src: ../fzf
     dst: ~/.fzf
@@ -91,15 +83,16 @@ dotfiles:
     src:
     dst:
     actions:
-      - pip_upgrade
-      - pyenv_install_python
-      - pyenv_set_global_python
-      - pipx_install
-      - pipx_install_packages
+      - uv_tools_install
+      - uv_tools_upgrade
+  f_uv_install_linux:
+    src:
+    dst:
+    actions:
+      - uv_install_linux
 profiles:
   mac_os:
     dotfiles:
-      - d_pyenv
       - f_gitconfig
       - f_ssh_config
       - d_shell
@@ -117,7 +110,6 @@ profiles:
       - f_bashrc
   linux:
     dotfiles:
-      - d_pyenv
       - f_gitconfig
       - f_ssh_config
       - d_shell
@@ -134,6 +126,7 @@ profiles:
       - f_bash_profile
       - f_bashrc
       - d_fzf
+      - f_uv_install_linux
   python:
     dotfiles:
       - f_python

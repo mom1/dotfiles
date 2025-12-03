@@ -1,6 +1,4 @@
-flake8
-isort
-pipenv
-yapf
-black
 youtube-dl
+yamllint
+ruff
+prek

@@ -40,3 +40,5 @@ source "$HOME/.shell/.p10k.v2.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
