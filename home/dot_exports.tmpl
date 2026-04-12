@@ -1,0 +1,48 @@
+# Custom exports and environment variables
+
+{{- if eq .chezmoi.os "darwin" }}
+# === macOS Homebrew paths ===
+export PATH="/opt/homebrew/bin:$PATH"
+
+# === Compiler flags (libpq, openssl) ===
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl/include"
+export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
+{{- end }}
+
+# === GPG ===
+export GPG_TTY=$(tty)
+
+# === Terminal ===
+export TERM=xterm-256color
+
+# === Pagers ===
+export LESS="-iRFXMx4"
+export PAGER='less'
+export MANPAGER='less'
+
+# === alias-tips plugin ===
+export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ pls ll ls py"
+
+# === auto-notify plugin ===
+export AUTO_NOTIFY_THRESHOLD=30
+export AUTO_NOTIFY_EXPIRE_TIME=5000
+
+# === Node.js ===
+export NODE_REPL_HISTORY="$HOME/.node_history"
+export NODE_REPL_MODE='sloppy'
+
+# === kubectl krew ===
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# === fzf ===
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# === Chezmoi GitHub token ===
+export CHEZMOI_GITHUB_ACCESS_TOKEN={{ (bitwarden "item" "6f007e8a-ec9e-46d2-97a5-b42a00e2989b").login.password | trim }}
+
+# === GitHub token ===
+export GITHUB_ACCESS_TOKEN={{ (bitwarden "item" "46b4cfb2-1f52-4356-8425-b42a00e7bef6").login.password | trim }}

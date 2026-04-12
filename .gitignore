@@ -1,0 +1,3 @@
+# Ignore local SSH config if accidentally created in source dir
+*config_local*
+*/private_*

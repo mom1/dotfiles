@@ -1,0 +1,86 @@
+{{/* boolean feature tags */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $work := false -}}{{/* true if this machine is a work machine */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $email := "mstolpasov@gmail.com" -}}{{/* email for git config */}}
+{{- "" -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{-   $work = true -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $ephemeral = true -}}
+{{- end -}}
+
+{{- if not $ephemeral -}}
+{{-   if or (eq $hostname "ubuntu") (eq $osID "linux-debian") -}}
+{{-     $headless = true -}}
+{{-     $personal = true -}}
+{{-   else if stdinIsATTY -}}
+{{-     $headless = promptBoolOnce . "headless" "headless" -}}
+{{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
+{{-   else if eq .chezmoi.os "darwin" -}}
+{{-     $ephemeral = false -}}
+{{-   else -}}
+{{-     $ephemeral = true -}}
+{{-     $headless = true -}}
+{{-   end -}}
+{{- end -}}
+
+[data]
+    ephemeral = {{ $ephemeral }}
+    email = {{ $email | quote }}
+    work = {{ $work }}
+    headless = {{ $headless }}
+    hostname = {{ $hostname | quote }}
+    personal = {{ $personal }}
+    osid = {{ $osID | quote }}
+    zshPlugins = [
+        "alias-tips",
+        "command-not-found",
+        "cp",
+        "docker",
+        "docker-compose",
+        "extract",
+        "fast-syntax-highlighting",
+        "git",
+        "history",
+        "kubectl",
+        "per-directory-history",
+        "pip",
+        "python",
+        "sublime",
+        "thefuck",
+        "uv",
+        "zsh-autosuggestions",
+        "zsh-completions",
+        "zsh-history-substring-search",
+    {{- if eq $osID "linux-ubuntu" }}
+        "ubuntu",
+    {{- end }}
+    {{- if not $headless }}
+        "auto-notify",
+    {{- end }}
+    ]
+
+[github]
+    refreshPeriod = "12h"
+
+[bitwarden]
+    unlock = "auto"

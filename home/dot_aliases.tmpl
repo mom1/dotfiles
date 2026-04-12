@@ -1,0 +1,75 @@
+# === AI ===
+alias aia='opencode'
+alias ai='opencode run'
+
+# === Git ===
+alias g='git'
+alias gnp='git --no-pager'
+
+# === Utilities ===
+# Copy public key to clipboard:
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+# Good 'ol Clear Screen command
+alias cls='clear'
+# Stop after sending 5 packets
+alias ping='time ping -c 5'
+# Copy files with rsync
+alias copy="rsync --progress -ravz"
+# reload envs
+alias reload!='exec "$SHELL" -l'
+
+# === zsh management ===
+alias zshconfig="${EDITOR:-nano} ${HOME}/.zshrc"
+alias zshreload="source ${HOME}/.zshrc"
+
+# === System monitors ===
+alias ht='btop'
+alias top='btop'
+alias htop='btop'
+
+# === Modern ls (eza) ===
+{{- if lookPath "eza" }}
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -la --icons --git --group-directories-first'
+alias la='eza -la --icons --git --group-directories-first'
+alias lt='eza --tree --icons -L 2 --group-directories-first'
+alias ltt='eza --tree --icons -L 3 --group-directories-first'
+{{- end }}
+
+# === Modern cat (bat/batcat) ===
+{{- if lookPath "bat" }}
+alias cat='bat'
+alias catp='bat --plain'
+{{- else if lookPath "batcat" }}
+alias cat='batcat'
+alias catp='batcat --plain'
+{{- end }}
+
+# === Modern find (fd/fdfind) ===
+{{- if lookPath "fd" }}
+alias fd='fd'
+{{- else if lookPath "fdfind" }}
+alias fd='fdfind'
+{{- end }}
+
+# === Modern du (gdu) ===
+{{- if lookPath "gdu" }}
+alias du='gdu'
+alias duh='gdu -h'
+alias dud='gdu -d 1'
+{{- end }}
+
+# === Modern grep (ripgrep) ===
+{{- if lookPath "rg" }}
+alias rg='rg --smart-case'
+alias rgf='rg --files-with-matches'
+alias rgl='rg -l'
+{{- end }}
+
+# === Editor ===
+{{- if lookPath "micro" }}
+alias nano='micro'
+{{- end }}
+
+# === thefuck ===
+eval "$(thefuck --alias)"

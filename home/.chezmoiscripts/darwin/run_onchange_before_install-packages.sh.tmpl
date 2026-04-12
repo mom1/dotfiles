@@ -1,0 +1,59 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "age"
+     "bat"
+     "btop"
+     "curl"
+     "dockutil"
+     "eza"
+     "fd"
+     "fzf"
+     "gdu"
+     "gh"
+     "git"
+     "git-lfs"
+     "glab"
+     "gnu-units"
+     "gnupg"
+     "jless"
+     "jq"
+     "micro"
+     "node"
+     "pinentry-mac"
+     "pkg-config"
+     "ripgrep"
+     "shellcheck"
+     "the_silver_searcher"
+     "thefuck"
+     "wget"
+     "xz" -}}
+{{ $casks := list
+     "sublime-text"
+     "sublime-merge"
+     "arc"
+     "google-chrome"
+     "tabby"
+     "vlc"
+     "balenaetcher"
+     "ghostty"
+     "orbstack" -}}
+
+brew bundle --file=/dev/stdin <<EOF
+tap "Adembc/homebrew-tap"
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+brew "lazyssh"
+EOF
+
+# Install Bitwarden CLI (native executable via npm)
+# https://bitwarden.com/help/cli/
+{{- if not (lookPath "bw") }}
+npm install -g @bitwarden/cli
+{{- end }}
