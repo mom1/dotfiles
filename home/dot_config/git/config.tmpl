@@ -23,7 +23,9 @@
   cp = cherry-pick
   d = diff
   dc = diff --cached
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   dom = diff origin/master
+  amend = commit --amend --reuse-message=HEAD
   fo = fetch origin
   fu = "!git log -n 16 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
   g = grep --line-number
@@ -53,6 +55,7 @@
 [core]
   editor = {{ lookPath "micro" | default "nano" }}
   excludesfile = ~/.config/git/ignore
+  untrackedCache = true
   whitespace = trailing-space,space-before-tab
 [diff]
   algorithm = histogram
@@ -84,6 +87,7 @@
 [push]
   autoSetupRemote = true
   default = current
+  followTags = true
 [rebase]
   autoSquash = true
   autoStash = true
@@ -105,3 +109,7 @@
 [credential "https://gist.github.com"]
   helper = !{{ $ghPath }} auth git-credential
 {{- end }}
+[url "git@github.com:"]
+  insteadOf = "gh:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"

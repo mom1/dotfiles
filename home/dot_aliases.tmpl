@@ -2,6 +2,25 @@
 alias aia='opencode'
 alias ai='opencode run'
 
+# === Navigation ===
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias -- -='cd -'
+alias p='cd ~/projects'
+
+# === sudo with alias expansion ===
+alias sudo='sudo '
+
+# === Network (macOS) ===
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+
+# === Cleanup ===
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash"
+
 # === Git ===
 alias g='git'
 alias gnp='git --no-pager'
@@ -64,11 +83,6 @@ alias dud='gdu -d 1'
 alias rg='rg --smart-case'
 alias rgf='rg --files-with-matches'
 alias rgl='rg -l'
-{{- end }}
-
-# === Editor ===
-{{- if lookPath "micro" }}
-alias nano='micro'
 {{- end }}
 
 # === thefuck ===
