@@ -3,3 +3,26 @@ font-feature = -calt, -liga, -dlig
 window-inherit-working-directory = false
 working-directory = home
 keybind = shift+enter=text:\x1b\r
+
+cursor-style = bar
+window-decoration = "auto"
+window-padding-balance = true
+window-padding-x = 10
+window-padding-y = 10
+window-save-state = always
+window-theme = "system"
+
+initial-window = true
+
+macos-icon = holographic
+macos-titlebar-style = tabs
+macos-option-as-alt = left
+macos-auto-secure-input = false
+
+desktop-notifications = true
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
+confirm-close-surface = false
+
+shell-integration-features = cursor,sudo,title

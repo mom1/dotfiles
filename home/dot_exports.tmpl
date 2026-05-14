@@ -27,10 +27,6 @@ export MANPAGER='less -X'
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="Tip: "
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_ pls ll ls py"
 
-# === auto-notify plugin ===
-export AUTO_NOTIFY_THRESHOLD=30
-export AUTO_NOTIFY_EXPIRE_TIME=5000
-
 # === Node.js ===
 export NODE_REPL_HISTORY="$HOME/.node_history"
 export NODE_REPL_HISTORY_SIZE='32768'
@@ -45,6 +41,9 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # === fzf ===
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# === nanobrew ===
+export PATH="/opt/nanobrew/prefix/bin:$PATH"
 
 # === Chezmoi GitHub token ===
 export CHEZMOI_GITHUB_ACCESS_TOKEN={{ (bitwarden "item" "6f007e8a-ec9e-46d2-97a5-b42a00e2989b").login.password | trim }}

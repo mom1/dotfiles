@@ -39,3 +39,7 @@ fbig() {
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
+
+# === to project (with autocompletion) ===
+p() { cd ~/projects/"$1" }
+compctl -W ~/projects/ -/ p
